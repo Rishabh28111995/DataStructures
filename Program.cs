@@ -53,9 +53,14 @@ public class stack
         return top.data;
     }
 
-    public bool IsEmpty()
+    public void IsEmpty()
     {
-        return top == null;
+        while (this.top == null)
+        {
+            Peek();
+            Pop();
+
+        }
     }
 }
 
@@ -67,9 +72,12 @@ public class Program
         s.Push(70);
         s.Push(30);
         s.Push(56);
+
+        
+       Console.WriteLine(s.Pop());
         Console.WriteLine(s.Pop());
         Console.WriteLine(s.Pop());
-        Console.WriteLine(s.Pop());
+
 
 
     }
