@@ -15,47 +15,54 @@ public class Node
     }
 }
 
-public class stack
+public class Queue
 {
-    private Node top;
+    private Node front;
+    private Node rear;
 
-    public void Push(int data)
+    public void Enqueue(int data)
     {
         Node newNode = new Node(data);
-        if(top == null)
+        if(front == null)
         {
-            top = newNode;
+            front = newNode;
+            rear = newNode;
         }
         else
         {
-            newNode.next = top;
-            top = newNode;
+            rear.next = newNode;
+
+            rear = newNode;
         }
     }
 
-    public int Pop()
+    public int Dequeue()
     {
-        if(top == null)
+        if(front == null)
         {
-            throw new InvalidOperationException("Stack is Empty");
+            throw new InvalidOperationException("Queue is Empty");
         }
-        int data = top.data;
-        top = top.next;
+        int data = front.data;
+        front = front.next;
+        if(front == null)
+        {
+            (rear == null);
+        }
         return data;
     }
     public int Peek()
     {
-        if(top == null)
+        if(front == null)
         {
             throw new InvalidOperationException("Stack is empty");
 
         }
-        return top.data;
+        return front.data;
     }
 
     public bool IsEmpty()
     {
-        return top == null;
+        return front == null;
     }
 }
 
@@ -63,13 +70,10 @@ public class Program
 {
     public static void Main()
     {
-        Stack s = new Stack();
-        s.Push(70);
-        s.Push(30);
-        s.Push(56);
-        Console.WriteLine(s.Pop());
-        Console.WriteLine(s.Pop());
-        Console.WriteLine(s.Pop());
+        Queue q = new Queue();
+        q.Enqueue(56);
+        q.Enqueue(30);
+        q.Enqueue(70);
 
 
     }
