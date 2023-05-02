@@ -67,9 +67,7 @@ public class Program
         s.Push(70);
         s.Push(30);
         s.Push(56);
-        Console.WriteLine(s.Pop());
-        Console.WriteLine(s.Pop());
-        Console.WriteLine(s.Pop());
+        
 
 
     }
